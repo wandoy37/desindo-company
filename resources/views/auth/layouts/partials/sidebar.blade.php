@@ -32,8 +32,14 @@
                 </li>
                 <li class="nav-item {{ request()->segment(1) == 'postingan' ? 'active' : '' }}">
                     <a href="{{ route('post.index') }}">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-newspaper"></i>
                         <p>Postingan</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->segment(1) == 'project' ? 'active' : '' }}">
+                    <a href="{{ route('project.index') }}">
+                        <i class="fab fa-palfed"></i>
+                        <p>Projects</p>
                     </a>
                 </li>
             </ul>

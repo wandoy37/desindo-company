@@ -1,0 +1,10 @@
+/* Custom */
+.grad1 img {
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 75%);
+    mask-image: linear-gradient(to top, transparent 0%, black 75%);
+}
+
+.g-0 > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/postingan/{slug}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::patch('/postingan/{slug}/update', [PostController::class, 'update'])->name('post.update');
     Route::delete('/postingan/{slug}/delete', [PostController::class, 'destroy'])->name('post.delete');
+
+    // Project
+    Route::get('/project', [ProjectController::class, 'index'])->name('project.index');
+    Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
+    Route::post('/project/store', [ProjectController::class, 'store'])->name('project.store');
+    Route::get('/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+    Route::patch('/project/{id}/update', [ProjectController::class, 'update'])->name('project.update');
+    Route::delete('/project/{id}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
 });
