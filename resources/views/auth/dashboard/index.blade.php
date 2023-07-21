@@ -14,7 +14,7 @@
                         <i class="fas fa-users"></i>
                         Manage
                     </a>
-                    <a href="#" class="btn btn-secondary btn-round">
+                    <a href="{{ route('post.create') }}" class="btn btn-secondary btn-round">
                         <i class="fas fa-plus"></i>
                         Posts
                     </a>
@@ -56,7 +56,7 @@
                             <div class="col-md-4 d-flex flex-column justify-content-around">
                                 <div>
                                     <h6 class="fw-bold text-uppercase text-secondary op-8">Total Posts</h6>
-                                    <h3 class="fw-bold">$9.782</h3>
+                                    <h3 class="fw-bold">{{ $posts->count() }}</h3>
                                 </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase text-success op-8">Total Project</h6>
@@ -74,34 +74,4 @@
             </div>
         </div>
     </div>
-
-    @push('scripts')
-        <script>
-            // Notify
-            var flash = $('#success').data('flash');
-            if (flash) {
-                $.notify({
-                    // options
-                    icon: 'fas fa-check',
-                    title: 'Berhasil',
-                    message: '{{ session('success') }}',
-                }, {
-                    // settings
-                    type: 'success',
-                });
-            }
-            var flash = $('#fails').data('flash');
-            if (flash) {
-                $.notify({
-                    // options
-                    icon: 'fas fa-ban',
-                    title: 'Gagal',
-                    message: '{{ session('fails') }}',
-                }, {
-                    // settings
-                    type: 'danger',
-                });
-            }
-        </script>
-    @endpush
 @endsection

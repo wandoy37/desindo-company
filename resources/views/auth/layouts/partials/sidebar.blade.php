@@ -30,6 +30,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->segment(1) == 'postingan' ? 'active' : '' }}">
+                    <a href="{{ route('post.index') }}">
+                        <i class="fas fa-home"></i>
+                        <p>Postingan</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
