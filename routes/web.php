@@ -22,8 +22,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
 Route::get('/post', [HomeController::class, 'post'])->name('post');
 Route::get('/post/{slug}', [HomeController::class, 'post_detail'])->name('post.detail');
+
+Route::get('/proyek', [HomeController::class, 'proyek'])->name('proyek');
 
 // Dashboard
 Route::middleware(['auth'])->group(function () {

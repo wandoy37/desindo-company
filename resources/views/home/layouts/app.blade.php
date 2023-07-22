@@ -17,6 +17,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap"
         rel="stylesheet">
     <!-- /Google Fonts Montserrat -->
+
+    <style>
+        /* Custom */
+        .grad1 img {
+            -webkit-mask-image: linear-gradient(to top, transparent 0%, black 75%);
+            mask-image: linear-gradient(to top, transparent 0%, black 75%);
+        }
+
+        .g-0>[class*="col-"] {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    </style>
 </head>
 
 <body>

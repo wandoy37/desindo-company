@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,5 +24,11 @@ class HomeController extends Controller
         $post = Post::where('slug', $slug)->first();
         $title = $post->title;
         return view('home.post.detail', compact('post', 'title'));
+    }
+
+    public function proyek()
+    {
+        $projects = Project::orderBy('id', 'DESC')->get();
+        return view('home.project.index', compact('projects'));
     }
 }

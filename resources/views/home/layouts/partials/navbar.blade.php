@@ -23,7 +23,8 @@
                             href="{{ route('post') }}">Postingan</a>
                     </li>
                     <li class="nav-item mx-4">
-                        <a class="nav-link" href=" {{ request()->segment(1) == 'proyek' ? 'active' : '' }}#">Project</a>
+                        <a class="nav-link {{ request()->segment(1) == 'proyek' ? 'active' : '' }}"
+                            href="{{ route('proyek') }}">Project</a>
                     </li>
                     <li class="nav-item mx-4">
                         <a class="nav-link {{ request()->segment(1) == 'tentang-kami' ? 'active' : '' }}"
