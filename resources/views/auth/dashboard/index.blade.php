@@ -2,6 +2,9 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    {{-- Notify --}}
+    <div id="success" data-flash="{{ session('success') }}"></div>
+    <div id="fails" data-flash="{{ session('fails') }}"></div>
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
@@ -10,9 +13,9 @@
                     <h5 class="text-white op-7 mb-2">PT DESINDO AGRI MANDIRI</h5>
                 </div>
                 <div class="ml-md-auto py-2 py-md-0">
-                    <a href="#" class="btn btn-white btn-border btn-round mr-2">
-                        <i class="fas fa-users"></i>
-                        Manage
+                    <a href="{{ route('tentang.kami') }}" class="btn btn-white btn-border btn-round mr-2">
+                        <i class="fas fa-info"></i>
+                        Tentang Kami
                     </a>
                     <a href="{{ route('post.create') }}" class="btn btn-secondary btn-round">
                         <i class="fas fa-plus"></i>
@@ -75,3 +78,32 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        // Notify
+        var flash = $('#success').data('flash');
+        if (flash) {
+            $.notify({
+                // options
+                icon: 'fas fa-check',
+                title: 'Berhasil',
+                message: '{{ session('success') }}',
+            }, {
+                // settings
+                type: 'success',
+            });
+        }
+        var flash = $('#fails').data('flash');
+        if (flash) {
+            $.notify({
+                // options
+                icon: 'fas fa-ban',
+                title: 'Gagal',
+                message: '{{ session('fails') }}',
+            }, {
+                // settings
+                type: 'danger',
+            });
+        }
+    </script>
+@endpush

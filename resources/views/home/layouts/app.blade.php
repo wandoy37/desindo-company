@@ -44,7 +44,7 @@
         <div class="container px-4">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <a class="font-text-secondary text-decoration-none text-white" href="#">
+                    <a class="font-text-secondary text-decoration-none text-white" href="{{ route('index') }}">
                         <img src="{{ asset('assets') }}/img/logo.png" class="img-fluid float-start" width="75px">
                         <span class="font-text-second-footer">FORESTRY CONSULTANT</span>
                         <h2 class="font-text-primary-footer">PT DESINDO AGRI MANDIRI</h2>
@@ -63,10 +63,10 @@
                             <a class="nav-link text-white" href="{{ route('post') }}">Postingan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Project</a>
+                            <a class="nav-link text-white" href="{{ route('proyek') }}">Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white">Tentang Kami</a>
+                            <a class="nav-link text-white" href="{{ route('about') }}">Tentang Kami</a>
                         </li>
                     </ul>
                 </div>

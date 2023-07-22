@@ -1,7 +1,7 @@
 <section>
     <nav class="navbar navbar-expand-lg navbar-dark bg-yellow fixed-top shadow">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('index') }}">
                 <img src="{{ asset('assets') }}/img/logo.png" class="img-fluid" width="50px">
                 DESINDO
             </a>
@@ -27,8 +27,8 @@
                             href="{{ route('proyek') }}">Project</a>
                     </li>
                     <li class="nav-item mx-4">
-                        <a class="nav-link {{ request()->segment(1) == 'tentang-kami' ? 'active' : '' }}"
-                            href="#">Tentang Kami</a>
+                        <a class="nav-link {{ request()->segment(1) == 'about' ? 'active' : '' }}"
+                            href="{{ route('about') }}">Tentang Kami</a>
                     </li>
                 </ul>
             </div>

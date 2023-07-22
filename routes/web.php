@@ -28,10 +28,14 @@ Route::get('/post/{slug}', [HomeController::class, 'post_detail'])->name('post.d
 
 Route::get('/proyek', [HomeController::class, 'proyek'])->name('proyek');
 
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+
 // Dashboard
 Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/tentang-kami', [DashboardController::class, 'about'])->name('tentang.kami');
+    Route::patch('/tentang-kami/update', [DashboardController::class, 'aboutUpdate'])->name('tentang.kami.update');
 
     // Post
     Route::get('/postingan', [PostController::class, 'index'])->name('post.index');
@@ -49,3 +53,28 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/project/{id}/update', [ProjectController::class, 'update'])->name('project.update');
     Route::delete('/project/{id}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
 });
+
+
+// // Clear application cache:
+// Route::get('/clear-cache', function () {
+//     Artisan::call('cache:clear');
+//     return 'Application cache has been cleared';
+// });
+
+// //Clear route cache:
+// Route::get('/route-cache', function () {
+//     Artisan::call('route:cache');
+//     return 'Routes cache has been cleared';
+// });
+
+// //Clear config cache:
+// Route::get('/config-cache', function () {
+//     Artisan::call('config:cache');
+//     return 'Config cache has been cleared';
+// });
+
+// // Clear view cache:
+// Route::get('/view-clear', function () {
+//     Artisan::call('view:clear');
+//     return 'View cache has been cleared';
+// });
