@@ -60,7 +60,7 @@
                                 </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase text-success op-8">Total Project</h6>
-                                    <h3 class="fw-bold">$1,248</h3>
+                                    <h3 class="fw-bold">{{ $projects->count() }}</h3>
                                 </div>
                             </div>
                             <div class="col-md-8">
