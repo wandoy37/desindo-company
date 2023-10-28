@@ -84,29 +84,31 @@
     </section>
 
     <!-- Section Sustainability -->
-    <Section style="padding-top: 60px; padding-bottom: 60px; margin-top: 60px;" id="split-color">
+    <Section style="padding-top: 60px; padding-bottom: 60px; margin-top: 60px; background-color:rgba(238, 238, 238, 0.5);">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 split-top">
-                    <span class="font-text-second">SUSTAINABILITY</span>
-                    <h1 class="font-text-primary">Berkomitmen Menjaga Kesehatan Dan Keselamatan</h1>
-                    <p style="text-align: justify;" class="text-description">
-                        Kami memprioritaskan aspek kesehatan dan keselamatan dalam semua aktivitas dan proyek yang
-                        mereka lakukan.
-                    </p>
-                </div>
-                <div class="col-lg-6 text-white split-bottom">
-                    <span class="font-text-thried">KAMI MENGIKUTI PRAKTIK TERBAIK</span>
-                    <p style="text-align: justify; font-size: 18px;" class="text-white">
-                        Metode atau pendekatan yang telah terbukti efektif dalam mencapai hasil yang diinginkan atau
-                        mencapai standar yang tinggi.
-                    </p>
-                    <ul>
-                        <li>Sustainablility</li>
-                        <li>Project On Time</li>
-                        <li>Modern Technology</li>
-                        <li>Latest Designs</li>
-                    </ul>
+                <div class="col-lg-12">
+                    <div class="row g-0 text-center">
+                        <h1 class="font-text-second" style="margin-bottom: 40px;">Our Projects</h1>
+                        @foreach ($projects as $project)
+                            <div class="col-6 col-md-4">
+                                <div class="position-relative"
+                                    style="height: 320px; background-image: url({{ asset('projects') . '/' . $project->image }}); background-position: center; background-size: cover;">
+                                    <div class="position-absolute px-3 py-4"
+                                        style="background: rgba(0, 0, 0, .5); right: 0; bottom: 0; left: 0;">
+                                        <h3 class="h6 text-white text-start" style="font-weight: 700;">
+                                            {{ $project->title }}
+                                        </h3>
+                                        <div class="mt-2 text-start">
+                                            <small class="mt-1 text-white">
+                                                {{ $project->description }}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

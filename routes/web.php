@@ -23,11 +23,11 @@ Route::name('home.')->group(function () {
     Route::get('/post', [HomeController::class, 'post'])->name('post');
     Route::get('/post/{slug}', [HomeController::class, 'post_detail'])->name('post.detail');
     Route::get('/proyek', [HomeController::class, 'proyek'])->name('proyek');
-    Route::get('/about-me', [HomeController::class, 'tentangKami'])->name('about');
+    Route::get('/tentang-kami', [HomeController::class, 'tentangKami'])->name('about');
 });
 
 // Dashboard
-Route::middleware(['auth'])->group(function () {
+Route::prefix('auth')->middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/tentang-kami', [DashboardController::class, 'about'])->name('tentang.kami');

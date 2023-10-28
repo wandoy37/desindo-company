@@ -10,7 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home.index');
+        $projects = Project::orderBy('id', 'DESC')->take(3)->get();
+        return view('home.index', compact('projects'));
     }
 
     public function post()
