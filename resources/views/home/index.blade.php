@@ -17,8 +17,10 @@
                         profesional yang terampil, kami siap untuk menghadirkan proyek-proyek baja yang kokoh, efisien,
                         dan memenuhi standar tertinggi.
                     </p>
-                    <a href="https://api.whatsapp.com/send/?phone=62 82148722747&text=Halo" class="btn-contact">
-                        <img src="https://salam.net.id/assets/img/social/phone.png" class="img-fluid" width="32px">
+                    <a href="https://api.whatsapp.com/send/?phone=628115563327&text=Halo PT DESINDO AGRI MANDIRI"
+                        class="btn-contact">
+                        <img src="https://salam.net.id/assets/img/social/phone.png" class="img-fluid" width="32px"
+                            target="_blank">
                         Call Me
                     </a>
                 </div>

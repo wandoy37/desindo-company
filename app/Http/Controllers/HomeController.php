@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Post;
 use App\Models\Project;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -33,7 +32,7 @@ class HomeController extends Controller
         return view('home.project.index', compact('projects'));
     }
 
-    public function about()
+    public function tentangKami()
     {
         $about = About::find(1);
         return view('home.about', compact('about'));

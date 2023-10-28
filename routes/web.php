@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,18 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', [HomeController::class, 'index'])->name('index');
-
-Route::get('/post', [HomeController::class, 'post'])->name('post');
-Route::get('/post/{slug}', [HomeController::class, 'post_detail'])->name('post.detail');
-
-Route::get('/proyek', [HomeController::class, 'proyek'])->name('proyek');
-
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::name('home.')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('index');
+    Route::get('/post', [HomeController::class, 'post'])->name('post');
+    Route::get('/post/{slug}', [HomeController::class, 'post_detail'])->name('post.detail');
+    Route::get('/proyek', [HomeController::class, 'proyek'])->name('proyek');
+    Route::get('/about-me', [HomeController::class, 'tentangKami'])->name('about');
+});
 
 // Dashboard
 Route::middleware(['auth'])->group(function () {
@@ -52,29 +48,34 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
     Route::patch('/project/{id}/update', [ProjectController::class, 'update'])->name('project.update');
     Route::delete('/project/{id}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
+
+    // Kelola User
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::patch('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
 });
 
 
-// // Clear application cache:
 // Route::get('/clear-cache', function () {
 //     Artisan::call('cache:clear');
 //     return 'Application cache has been cleared';
 // });
 
-// //Clear route cache:
 // Route::get('/route-cache', function () {
 //     Artisan::call('route:cache');
 //     return 'Routes cache has been cleared';
 // });
 
-// //Clear config cache:
 // Route::get('/config-cache', function () {
 //     Artisan::call('config:cache');
 //     return 'Config cache has been cleared';
 // });
 
-// // Clear view cache:
 // Route::get('/view-clear', function () {
 //     Artisan::call('view:clear');
 //     return 'View cache has been cleared';
+// });
+
+// Route::get('/clear-optimize', function () {
+//     Artisan::call('optimize:clear');
+//     return 'Application optimize has been cleared';
 // });

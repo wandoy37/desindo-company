@@ -44,7 +44,7 @@
         <div class="container px-4">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <a class="font-text-secondary text-decoration-none text-white" href="{{ route('index') }}">
+                    <a class="font-text-secondary text-decoration-none text-white" href="{{ route('home.index') }}">
                         <img src="{{ asset('assets') }}/img/logo.png" class="img-fluid float-start" width="75px">
                         <span class="font-text-second-footer">FORESTRY CONSULTANT</span>
                         <h2 class="font-text-primary-footer">PT DESINDO AGRI MANDIRI</h2>
@@ -57,16 +57,16 @@
                 <div class="col-lg-6">
                     <ul class="nav justify-content-between">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('index') }}">Beranda</a>
+                            <a class="nav-link text-white" href="{{ route('home.index') }}">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('post') }}">Postingan</a>
+                            <a class="nav-link text-white" href="{{ route('home.post') }}">Postingan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('proyek') }}">Project</a>
+                            <a class="nav-link text-white" href="{{ route('home.proyek') }}">Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('about') }}">Tentang Kami</a>
+                            <a class="nav-link text-white" href="{{ route('home.about') }}">Tentang Kami</a>
                         </li>
                     </ul>
                 </div>

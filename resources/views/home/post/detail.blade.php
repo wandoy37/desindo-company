@@ -17,7 +17,7 @@
                         {!! $post->content !!}
                     </article>
                     <hr>
-                    <a href="{{ route('post') }}">Postingan lainnya</a>
+                    <a href="{{ route('home.post') }}">Postingan lainnya</a>
                 </div>
             </div>
         </div>

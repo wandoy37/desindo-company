@@ -41,7 +41,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="blue2">
 
-                <a href="index.html" class="logo">
+                <a href="{{ route('dashboard.index') }}" class="logo">
                     <img src="{{ asset('atlantis') }}/img/logo.svg" alt="navbar brand" class="navbar-brand">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"

@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="form-group form-action-d-flex mb-3">
-                        <a href="#" class="link">Forgot Password</a>
+                        {{-- <a href="#" class="link">Forgot Password</a> --}}
                         <button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign
                             In</button>
                     </div>

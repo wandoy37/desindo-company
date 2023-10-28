@@ -42,7 +42,7 @@
                             <div class="name">{{ Auth::user()->username }}</div>
                             <div class="job">{{ Auth::user()->role }}</div>
                             <div class="view-profile">
-                                <a href="#" class="btn btn-primary btn-block">
+                                <a href="{{ route('user.edit', Auth::user()->id) }}" class="btn btn-primary btn-block">
                                     <i class="flaticon-settings"></i>
                                     Settings
                                 </a>
