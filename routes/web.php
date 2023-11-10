@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
@@ -48,6 +49,11 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
     Route::get('/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
     Route::patch('/project/{id}/update', [ProjectController::class, 'update'])->name('project.update');
     Route::delete('/project/{id}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
+
+    // Pengaturan Website
+    Route::get('/pengaturan-website', [PengaturanController::class, 'index'])->name('pengaturan.index');
+    Route::get('/pengaturan-website/{id}/edit', [PengaturanController::class, 'edit'])->name('pengaturan.edit');
+    Route::patch('/pengaturan-website/{id}/update', [PengaturanController::class, 'edit'])->name('pengaturan.update');
 
     // Kelola User
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');

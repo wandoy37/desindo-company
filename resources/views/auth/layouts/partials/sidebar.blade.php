@@ -24,22 +24,28 @@
                     </span>
                     <h4 class="text-section">MENU NAVIGATION</h4>
                 </li>
-                <li class="nav-item {{ request()->segment(1) == 'dashboard' ? 'active' : '' }}">
+                <li class="nav-item {{ request()->segment(2) == 'dashboard' ? 'active' : '' }}">
                     <a href="{{ route('dashboard.index') }}">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->segment(1) == 'postingan' ? 'active' : '' }}">
+                <li class="nav-item {{ request()->segment(2) == 'postingan' ? 'active' : '' }}">
                     <a href="{{ route('post.index') }}">
                         <i class="fas fa-newspaper"></i>
                         <p>Postingan</p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->segment(1) == 'project' ? 'active' : '' }}">
+                <li class="nav-item {{ request()->segment(2) == 'project' ? 'active' : '' }}">
                     <a href="{{ route('project.index') }}">
                         <i class="fab fa-palfed"></i>
                         <p>Projects</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->segment(2) == 'pengaturan-website' ? 'active' : '' }}">
+                    <a href="{{ route('pengaturan.index') }}">
+                        <i class="icon-globe"></i>
+                        <p>Pengaturan Website</p>
                     </a>
                 </li>
             </ul>
