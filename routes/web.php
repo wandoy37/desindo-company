@@ -53,7 +53,7 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
     // Pengaturan Website
     Route::get('/pengaturan-website', [PengaturanController::class, 'index'])->name('pengaturan.index');
     Route::get('/pengaturan-website/{id}/edit', [PengaturanController::class, 'edit'])->name('pengaturan.edit');
-    Route::patch('/pengaturan-website/{id}/update', [PengaturanController::class, 'edit'])->name('pengaturan.update');
+    Route::patch('/pengaturan-website/{id}/update', [PengaturanController::class, 'update'])->name('pengaturan.update');
 
     // Kelola User
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');

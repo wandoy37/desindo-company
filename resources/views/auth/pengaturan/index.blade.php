@@ -60,3 +60,32 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        // Notify
+        var flash = $('#success').data('flash');
+        if (flash) {
+            $.notify({
+                // options
+                icon: 'fas fa-check',
+                title: 'Berhasil',
+                message: '{{ session('success') }}',
+            }, {
+                // settings
+                type: 'success',
+            });
+        }
+        var flash = $('#fails').data('flash');
+        if (flash) {
+            $.notify({
+                // options
+                icon: 'fas fa-ban',
+                title: 'Gagal',
+                message: '{{ session('fails') }}',
+            }, {
+                // settings
+                type: 'danger',
+            });
+        }
+    </script>
+@endpush

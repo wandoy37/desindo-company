@@ -23,7 +23,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('pengaturan.update', $pengaturan->id) }}" method="post"
+                        <form action="{{ route('pengaturan.update', $pengaturan->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
@@ -40,7 +40,7 @@
                                             placeholder="Judul.." value="{{ old('title', $pengaturan->title) }}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Kontent</label>
+                                        <label>Content</label>
                                         <br>
                                         @error('content')
                                             <strong class="text-danger">{{ $message }}</strong>
@@ -50,11 +50,11 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label>Thumbnail</label>
+                                        <label>Image</label>
                                         <br>
                                         <input type="file" class="form-control" name="img">
                                         <small class="text-muted">*kosongkan jikan tidak ingin mengganti thumbnail</small>
-                                        @error('thumbnail')
+                                        @error('img')
                                             <strong class="text-danger">{{ $message }}</strong>
                                         @enderror
                                         <img src="{{ asset('uploads/img/' . $pengaturan->img) }}" class="img-thumbnail"
