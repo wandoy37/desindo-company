@@ -43,6 +43,12 @@
                     </a>
                 </li>
                 <li class="nav-item {{ request()->segment(2) == 'pengaturan-website' ? 'active' : '' }}">
+                    <a href="{{ route('layanan.index') }}">
+                        <i class="fas fa-seedling"></i>
+                        <p>Layanan</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->segment(2) == 'pengaturan-website' ? 'active' : '' }}">
                     <a href="{{ route('pengaturan.index') }}">
                         <i class="icon-globe"></i>
                         <p>Pengaturan Website</p>

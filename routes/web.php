@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
@@ -58,6 +59,8 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
     // Kelola User
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
+
+    Route::resource('layanan', LayananController::class);
 });
 
 
