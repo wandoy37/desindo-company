@@ -41,4 +41,9 @@ class HomeController extends Controller
         $about = About::find(1);
         return view('home.about', compact('about'));
     }
+
+    public function kontak()
+    {
+        return view('home.kontak');
+    }
 }

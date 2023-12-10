@@ -26,6 +26,7 @@ Route::name('home.')->group(function () {
     Route::get('/post/{slug}', [HomeController::class, 'post_detail'])->name('post.detail');
     Route::get('/proyek', [HomeController::class, 'proyek'])->name('proyek');
     Route::get('/tentang-kami', [HomeController::class, 'tentangKami'])->name('about');
+    Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
 });
 
 // Dashboard

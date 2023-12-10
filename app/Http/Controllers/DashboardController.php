@@ -84,7 +84,7 @@ class DashboardController extends Controller
                 // Process Uploads
                 $name = time() . '.' . $request->image->extension();
                 ResizeImage::make($request->file('image'))
-                    ->resize(1920, 1080)
+                    ->resize(770, 600)
                     ->save($path . $name);
             }
 
