@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Layanan;
 use App\Models\Pengaturan;
 use App\Models\Post;
 use App\Models\Project;
@@ -14,7 +15,8 @@ class HomeController extends Controller
         $projects = Project::orderBy('id', 'DESC')->take(3)->get();
         $hero = Pengaturan::find(1);
         $posts = Post::orderBy('id', 'DESC')->get();
-        return view('home.index', compact('projects', 'hero', 'posts'));
+        $services = Layanan::orderBy('id', 'DESC')->get();
+        return view('home.index', compact('projects', 'hero', 'posts', 'services'));
     }
 
     public function post()

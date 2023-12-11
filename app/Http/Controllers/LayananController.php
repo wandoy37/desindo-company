@@ -65,7 +65,7 @@ class LayananController extends Controller
 
             $name = time() . '.' . $request->image->extension();
             ResizeImage::make($request->file('image'))
-                ->resize(1920, 1080)
+                ->resize(734, 550)
                 ->save($path . $name);
 
             Layanan::create([
@@ -157,7 +157,7 @@ class LayananController extends Controller
                 // Process Uploads
                 $name = time() . '.' . $request->image->extension();
                 ResizeImage::make($request->file('image'))
-                    ->resize(1920, 1080)
+                    ->resize(734, 550)
                     ->save($path . $name);
             }
 
