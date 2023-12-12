@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProjectCategories;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,11 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
     Route::get('/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
     Route::patch('/project/{id}/update', [ProjectController::class, 'update'])->name('project.update');
     Route::delete('/project/{id}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
+
+    // Project Categories
+    Route::get('/project-category', [ProjectCategories::class, 'index'])->name('category.project.index');
+    Route::post('/project-category/store', [ProjectCategories::class, 'store'])->name('category.project.store');
+    Route::delete('/project-category/{slug}/delete', [ProjectCategories::class, 'destroy'])->name('category.project.delete');
 
     // Pengaturan Website
     Route::get('/pengaturan-website', [PengaturanController::class, 'index'])->name('pengaturan.index');

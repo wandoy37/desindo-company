@@ -42,6 +42,12 @@
                         <p>Projects</p>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->segment(2) == 'project-category' ? 'active' : '' }}">
+                    <a href="{{ route('category.project.index') }}">
+                        <i class="fas fa-dot-circle"></i>
+                        <p>Category Projects</p>
+                    </a>
+                </li>
                 <li class="nav-item {{ request()->segment(2) == 'pengaturan-website' ? 'active' : '' }}">
                     <a href="{{ route('layanan.index') }}">
                         <i class="fas fa-seedling"></i>
