@@ -34,6 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th width="80%">Title</th>
+                                        <th>Total Project</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -41,6 +42,7 @@
                                     @foreach ($project_categories as $category)
                                         <tr>
                                             <td>{{ $category->title }}</td>
+                                            <td>{{ $category->projects->count() }}</td>
                                             <td class="form-inline">
                                                 <form id="form-delete-{{ $category->id }}"
                                                     action="{{ route('category.project.delete', $category->slug) }}"

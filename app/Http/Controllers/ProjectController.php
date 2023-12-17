@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('auth.project.create');
+        $categories = ProjectCategory::all();
+        return view('auth.project.create', compact('categories'));
     }
 
     /**
@@ -40,10 +42,12 @@ class ProjectController extends Controller
             [
                 'title' => 'required',
                 'description' => 'required',
+                'category' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ],
             [
                 'title.required' => 'Nama proyek wajib diisi.',
+                'category.required' => 'Kategori proyek wajib diisi.',
                 'description.required' => 'Keterangan proyek wajib diisi.',
                 'image.required' => 'Foto proyek wajib diupload.',
                 'image.image' => 'Foto proyek berupa gambar.',
@@ -74,6 +78,7 @@ class ProjectController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'image' => $name,
+                'category_id' => $request->category,
             ]);
 
             return redirect()->route('project.index')->with('success', 'Proyek baru berhasil ditambahkan.');
@@ -99,7 +104,8 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $project = Project::find($id);
-        return view('auth.project.edit', compact('project'));
+        $categories = ProjectCategory::all();
+        return view('auth.project.edit', compact('project', 'categories'));
     }
 
     /**
@@ -116,9 +122,11 @@ class ProjectController extends Controller
                     'title' => 'required',
                     'description' => 'required',
                     'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                    'category' => 'required',
                 ],
                 [
                     'title.required' => 'Nama proyek wajib diisi.',
+                    'category.required' => 'Kategori proyek wajib diisi.',
                     'description.required' => 'Keterangan proyek wajib diisi.',
                     'image.required' => 'Foto proyek wajib diupload.',
                     'image.image' => 'Foto proyek berupa gambar.',
@@ -171,6 +179,7 @@ class ProjectController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'image' => $name ?? $project->image,
+                'category_id' => $request->category,
             ]);
 
             return redirect()->route('project.index')->with('success', 'Proyek berhasil di update.');

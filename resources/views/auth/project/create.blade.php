@@ -53,6 +53,20 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Kategori Proyek</label>
+                                <div class="select2-input">
+                                    <select id="basic" name="category" class="form-control">
+                                        <option value="">--pilih kategori--</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('category')
+                                    <strong class="text-danger">{{ $message }}</strong>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Foto Proyek</label>
                                 <input type="file" class="form-control-file" name="image">
                                 @error('image')

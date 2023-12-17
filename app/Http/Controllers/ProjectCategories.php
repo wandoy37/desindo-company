@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProjectCategory;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -15,7 +16,7 @@ class ProjectCategories extends Controller
      */
     public function index()
     {
-        $project_categories = ProjectCategory::orderBy('id', 'DESC')->get();
+        $project_categories = ProjectCategory::all();
         return view('auth.project_category.index', compact('project_categories'));
     }
 

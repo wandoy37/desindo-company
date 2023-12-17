@@ -30,6 +30,7 @@
                         <img class="img-fluid" src="{{ asset('projects/' . $project->image) }}" alt="Card image">
                         <div class="card-img-overlay d-flex flex-column">
                             <div class="mt-auto">
+                                <span class="badge badge-primary">{{ $project->category->title }}</span>
                                 <h5 class="card-title font-weight-bold">{{ $project->title }}</h5>
                                 <span>{{ $project->description }}</span>
                                 <div class="float-right form-inline">

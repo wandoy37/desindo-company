@@ -55,6 +55,24 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Kategori Proyek</label>
+                                <div class="select2-input">
+                                    <select id="basic" name="category" class="form-control">
+                                        <option value="">--pilih kategori--</option>
+                                        @foreach ($categories as $category)
+                                            @if (old($category->id, $project->category_id == $category->id))
+                                                <option value="{{ $category->id }}" selected>{{ $category->title }}</option>
+                                            @else
+                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('category')
+                                    <strong class="text-danger">{{ $message }}</strong>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Foto Proyek</label>
                                 <br>
                                 <small class="text-muted">*kosongkan jikan tidak ingin mengganti foto proyek</small>

@@ -7,16 +7,18 @@ use App\Models\Layanan;
 use App\Models\Pengaturan;
 use App\Models\Post;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('id', 'DESC')->take(3)->get();
+        $projects = Project::all();
         $hero = Pengaturan::find(1);
         $posts = Post::orderBy('id', 'DESC')->get();
         $services = Layanan::orderBy('id', 'DESC')->get();
-        return view('home.index', compact('projects', 'hero', 'posts', 'services'));
+        $project_categories = ProjectCategory::all();
+        return view('home.index', compact('projects', 'hero', 'posts', 'services', 'project_categories'));
     }
 
     public function post()
