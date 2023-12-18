@@ -14,11 +14,10 @@ class HomeController extends Controller
     public function index()
     {
         $projects = Project::all();
-        $hero = Pengaturan::find(1);
         $posts = Post::orderBy('id', 'DESC')->get();
         $services = Layanan::orderBy('id', 'DESC')->get();
         $project_categories = ProjectCategory::all();
-        return view('home.index', compact('projects', 'hero', 'posts', 'services', 'project_categories'));
+        return view('home.index', compact('projects', 'posts', 'services', 'project_categories'));
     }
 
     public function post()
@@ -53,6 +52,6 @@ class HomeController extends Controller
     public function kontak()
     {
         $services = Layanan::orderBy('id', 'DESC')->get();
-        return view('home.kontak', 'services');
+        return view('home.kontak', compact('services'));
     }
 }
