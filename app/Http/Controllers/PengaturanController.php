@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HeroSection;
 use App\Models\Pengaturan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -14,8 +15,8 @@ class PengaturanController extends Controller
 {
     public function index()
     {
-        $pengaturans = Pengaturan::all();
-        return view('auth.pengaturan.index', compact('pengaturans'));
+        $heros = HeroSection::all();
+        return view('auth.pengaturan.index', compact('heros'));
     }
 
     public function edit($id)

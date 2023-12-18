@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PengaturanController;
@@ -60,8 +61,9 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
 
     // Pengaturan Website
     Route::get('/pengaturan-website', [PengaturanController::class, 'index'])->name('pengaturan.index');
-    Route::get('/pengaturan-website/{id}/edit', [PengaturanController::class, 'edit'])->name('pengaturan.edit');
-    Route::patch('/pengaturan-website/{id}/update', [PengaturanController::class, 'update'])->name('pengaturan.update');
+    // HeroSection Manage
+    Route::get('/pengaturan-website/hero/{id}/edit', [HeroSectionController::class, 'edit'])->name('pengaturan.hero.edit');
+    Route::patch('/pengaturan-website/hero/{id}/update', [HeroSectionController::class, 'update'])->name('pengaturan.hero.update');
 
     // Kelola User
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');

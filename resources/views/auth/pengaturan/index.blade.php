@@ -20,39 +20,29 @@
         <div class="row mt--2">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header">
+                        <h2>Hero Section</h2>
+                    </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="basic-datatables" class="display table table-striped table-hover" cellspacing="0"
-                                width="100%">
-                                <thead class="text-center">
-                                    <th width="18%">No</th>
-                                    <th>Title</th>
-                                    <th>Img</th>
-                                </thead>
-                                <tbody class="text-center">
-                                    @php
-                                        $count = 1;
-                                    @endphp
-                                    @foreach ($pengaturans as $pengaturan)
-                                        <tr>
-                                            <td class="text-center">{{ $count++ }}</td>
-                                            <td>{{ $pengaturan->title }}</td>
-                                            <td>
-                                                <img class="img-thumbnail my-2"
-                                                    src="{{ asset('uploads/img/' . $pengaturan->img) }}" width="150rem"
-                                                    alt="thumbnail">
-                                            </td>
-                                            <td class="form-inline">
-                                                <a href="{{ route('pengaturan.edit', $pengaturan->id) }}"
-                                                    class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-pen"></i>
-                                                    Edit
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="row g-0 justify-content-center">
+                            @foreach ($heros as $hero)
+                                <div class="col-md-4">
+                                    <div class="grad1">
+                                        <img class="img-fluid" src="{{ asset('hero/' . $hero->image) }}" alt="Card image">
+                                        <div class="card-img-overlay d-flex flex-column">
+                                            <div class="mt-auto">
+                                                <span class="badge badge-count">{{ $hero->image }}</span>
+                                                <div class="float-right">
+                                                    <a href="{{ route('pengaturan.hero.edit', $hero->id) }}"
+                                                        class="text-primary">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
