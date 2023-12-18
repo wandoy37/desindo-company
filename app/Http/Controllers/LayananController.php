@@ -39,14 +39,9 @@ class LayananController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ],
             [
-                'title.required' => 'Nama proyek wajib diisi.',
-                'image.required' => 'Foto layanan wajib diupload.',
-                'image.image' => 'Foto layanan berupa gambar.',
-                'image.mimes' => 'Foto layanan harus berupa jpeg,png,jpg.',
-                'image.max' => 'Foto layanan Maksimal 2mb',
+                'title.required' => 'Nama layanan wajib diisi.',
             ],
         );
 
@@ -58,20 +53,8 @@ class LayananController extends Controller
         // If validator success
         DB::beginTransaction();
         try {
-            // Process Uploads
-            $path = public_path('layanan/');
-            !is_dir($path) &&
-                mkdir($path, 0777, true);
-
-            $name = time() . '.' . $request->image->extension();
-            ResizeImage::make($request->file('image'))
-                ->resize(734, 550)
-                ->save($path . $name);
-
             Layanan::create([
                 'title' => $request->title,
-                'slug' => Str::slug($request->title, '-'),
-                'img' => $name,
             ]);
 
             return redirect()->route('layanan.index')->with('success', 'layanan baru berhasil ditambahkan.');
@@ -108,34 +91,15 @@ class LayananController extends Controller
         $layanan = Layanan::find($id);
 
 
-        if ($request['image']) {
-            // Validator Opsi 1
-            $validator = Validator::make(
-                $request->all(),
-                [
-                    'title' => 'required',
-                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                ],
-                [
-                    'title.required' => 'Nama proyek wajib diisi.',
-                    'image.required' => 'Foto layanan wajib diupload.',
-                    'image.image' => 'Foto layanan berupa gambar.',
-                    'image.mimes' => 'Foto layanan harus berupa jpeg,png,jpg.',
-                    'image.max' => 'Foto layanan Maksimal 2mb',
-                ],
-            );
-        } else {
-            // Validator
-            $validator = Validator::make(
-                $request->all(),
-                [
-                    'title' => 'required',
-                ],
-                [
-                    'title.required' => 'Nama proyek wajib diisi.',
-                ],
-            );
-        }
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required',
+            ],
+            [
+                'title.required' => 'Nama layanan wajib diisi.',
+            ],
+        );
 
         // If validator fails.
         if ($validator->fails()) {
@@ -145,27 +109,8 @@ class LayananController extends Controller
         // If validator success
         DB::beginTransaction();
         try {
-            if ($request['image']) {
-                $path = public_path('layanan/');
-                !is_dir($path) &&
-                    mkdir($path, 0777, true);
-
-                // Process delete old thumbnail
-                $oldImage = $layanan->img;
-                File::delete($path . $oldImage);
-
-                // Process Uploads
-                $name = time() . '.' . $request->image->extension();
-                ResizeImage::make($request->file('image'))
-                    ->resize(734, 550)
-                    ->save($path . $name);
-            }
-
-
             $layanan->update([
                 'title' => $request->title,
-                'slug' => Str::slug($request->title, '-'),
-                'img' => $name ?? $layanan->img,
             ]);
 
             return redirect()->route('layanan.index')->with('success', 'Layanan berhasil di update.');
@@ -185,9 +130,6 @@ class LayananController extends Controller
         DB::beginTransaction();
         try {
             $layanan = Layanan::find($id);
-            $path = public_path('layanan/');
-            File::delete($path . $layanan->img);
-
             $layanan->delete($layanan);
             return redirect()->route('layanan.index')->with('success', 'Layanan ' . $layanan->title . ' telah dihapus.');
         } catch (\Throwable $th) {

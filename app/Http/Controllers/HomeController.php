@@ -24,30 +24,35 @@ class HomeController extends Controller
     public function post()
     {
         $posts = Post::orderBy('id', 'DESC')->get();
-        return view('home.post.index', compact('posts'));
+        $services = Layanan::orderBy('id', 'DESC')->get();
+        return view('home.post.index', compact('posts', 'services'));
     }
 
     public function post_detail($slug)
     {
         $post = Post::where('slug', $slug)->first();
         $title = $post->title;
-        return view('home.post.detail', compact('post', 'title'));
+        $services = Layanan::orderBy('id', 'DESC')->get();
+        return view('home.post.detail', compact('post', 'title', 'services'));
     }
 
     public function proyek()
     {
         $projects = Project::orderBy('id', 'DESC')->get();
-        return view('home.project.index', compact('projects'));
+        $services = Layanan::orderBy('id', 'DESC')->get();
+        return view('home.project.index', compact('projects', 'services'));
     }
 
     public function tentangKami()
     {
         $about = About::find(1);
-        return view('home.about', compact('about'));
+        $services = Layanan::orderBy('id', 'DESC')->get();
+        return view('home.about', compact('about', 'services'));
     }
 
     public function kontak()
     {
-        return view('home.kontak');
+        $services = Layanan::orderBy('id', 'DESC')->get();
+        return view('home.kontak', 'services');
     }
 }

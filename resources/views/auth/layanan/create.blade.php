@@ -43,13 +43,6 @@
                                     class="form-control @error('title') is-invalid @enderror" name="title"
                                     placeholder="Proyek.." value="{{ old('title') }}">
                             </div>
-                            <div class="form-group">
-                                <label>Foto Layanan</label>
-                                <input type="file" class="form-control-file" name="image">
-                                @error('image')
-                                    <strong class="text-danger">{{ $message }}</strong>
-                                @enderror
-                            </div>
                             <div class="form-group float-right">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-save mr-1"></i>

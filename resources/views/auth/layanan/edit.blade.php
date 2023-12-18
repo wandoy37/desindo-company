@@ -45,19 +45,6 @@
                                     class="form-control @error('title') is-invalid @enderror" name="title"
                                     placeholder="Proyek.." value="{{ old('title', $layanan->title) }}">
                             </div>
-                            <div class="form-group">
-                                <label>Foto Layanan</label>
-                                <input type="file" class="form-control-file" name="image">
-                                @error('image')
-                                    <strong class="text-danger">{{ $message }}</strong>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label><i>Preview (Old Image)</i></label>
-                                <br>
-                                <img class="img-thumbnail my-2" src="{{ asset('layanan/' . $layanan->img) }}" width="300rem"
-                                    alt="thumbnail">
-                            </div>
                             <div class="form-group float-right">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-save mr-1"></i>

@@ -32,7 +32,6 @@
                                 <thead class="text-center">
                                     <th width="18%">No</th>
                                     <th>Title</th>
-                                    <th>Img</th>
                                     <th>Opsi</th>
                                 </thead>
                                 <tbody class="text-center">
@@ -43,12 +42,6 @@
                                         <tr>
                                             <td class="text-center">{{ $count++ }}</td>
                                             <td>{{ $layanan->title }}</td>
-                                            </td>
-                                            <td>
-                                                <img class="img-thumbnail my-2"
-                                                    src="{{ asset('layanan/' . $layanan->img) }}" width="150rem"
-                                                    alt="thumbnail">
-                                            </td>
                                             <td>
                                                 <a href="{{ route('layanan.edit', $layanan->id) }}"
                                                     class="btn btn-primary btn-sm">
