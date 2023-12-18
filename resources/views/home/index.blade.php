@@ -122,7 +122,8 @@
                     <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
                         <li data-filter="*" class="filter-active">All</li>
                         @foreach ($project_categories as $category)
-                            <li data-filter=".filter-{{ $category->title }}">{{ $category->title }}</li>
+                            <li data-filter=".filter-{{ $category->title }}" class="text-capitalize">{{ $category->title }}
+                            </li>
                         @endforeach
                     </ul><!-- End Projects Filters -->
 
@@ -138,8 +139,6 @@
                                         <a href="{{ asset('assets') }}/img/projects/remodeling-1.jpg" title="Remodeling 1"
                                             data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="project-details.html" title="More Details" class="details-link"><i
-                                                class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div>

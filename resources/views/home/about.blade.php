@@ -29,11 +29,7 @@
                     <div class="col-lg-7">
                         <h2>TENTANG KAMI</h2>
                         <div class="our-story">
-                            <h4>Est 2013</h4>
-                            <h3>Our Story</h3>
-                            <p>
-                                {!! $about->content !!}
-                            </p>
+                            {!! $about->content !!}
 
                             <div class="watch-video d-flex align-items-center position-relative">
                                 <i class="bi bi-play-circle"></i>
