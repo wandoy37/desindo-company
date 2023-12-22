@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             ServicesSeeder::class,
             AboutSeeder::class,
+            HeroSectionSeeder::class,
         ]);
     }
 }
