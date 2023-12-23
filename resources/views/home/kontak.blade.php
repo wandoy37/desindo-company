@@ -25,7 +25,7 @@
                         <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                             <i class="bi bi-map"></i>
                             <h3>Our Address</h3>
-                            <p>A108 Adam Street, New York, NY 535022</p>
+                            <p style="margin-right: 50px; margin-left: 50px;" class="text-center">{{ $abouts->address }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -33,7 +33,7 @@
                         <div class="info-item d-flex flex-column justify-content-center align-items-center">
                             <i class="bi bi-envelope"></i>
                             <h3>Email Us</h3>
-                            <p>contact@example.com</p>
+                            <p style="height: 50px;">{{ $abouts->email }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -41,7 +41,7 @@
                         <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                             <i class="bi bi-telephone"></i>
                             <h3>Call Us</h3>
-                            <p>+1 5589 55488 55</p>
+                            <p style="height: 50px;">{{ $abouts->number_phone }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -50,10 +50,8 @@
                 <div class="row gy-4 mt-1">
 
                     <div class="col-lg-6 ">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15958.772907990471!2d117.167266!3d-0.453711!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df679895b9ee773%3A0xa87aaddb16730689!2sPT%20Desindo%20Agri%20Mandiri!5e0!3m2!1sid!2sid!4v1702901663273!5m2!1sid!2sid"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" frameborder="0"
+                        <iframe src="{{ $abouts->maps }}" width="600" height="450" style="border:0;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0"
                             style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
                     </div><!-- End Google Maps -->
 

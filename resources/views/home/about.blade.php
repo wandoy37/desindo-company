@@ -23,17 +23,17 @@
 
                 <div class="row position-relative">
 
-                    <div class="col-lg-7 about-img" style="background-image: url({{ asset('about/' . $about->image) }});">
+                    <div class="col-lg-7 about-img" style="background-image: url({{ asset('about/' . $abouts->image) }});">
                     </div>
 
                     <div class="col-lg-7">
                         <h2>TENTANG KAMI</h2>
                         <div class="our-story">
-                            {!! $about->content !!}
+                            {!! $abouts->content !!}
 
                             <div class="watch-video d-flex align-items-center position-relative">
                                 <i class="bi bi-play-circle"></i>
-                                <a href="{{ $about->youtube }}" class="glightbox stretched-link">Watch
+                                <a href="{{ $abouts->youtube }}" class="glightbox stretched-link">Watch
                                     Video</a>
                             </div>
                         </div>

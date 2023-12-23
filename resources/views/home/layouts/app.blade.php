@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets') }}/img/favicon.png" rel="icon">
+    <link href="{{ asset('about/' . $abouts->logo) }}" rel="icon">
     <link href="{{ asset('assets') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -39,6 +39,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
+                <img src="{{ asset('about/' . $abouts->logo) }}" alt="">
                 <h1>DESINDO<span>.</span></h1>
             </a>
 
@@ -64,10 +65,10 @@
                         <div class="footer-info">
                             <h3>DESINDO<span>.</span></h3>
                             <p>
-                                A108 Adam Street <br>
-                                NY 535022, USA<br><br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> info@example.com<br>
+                                {{ $abouts->address }}
+                                <br>
+                                <strong>Phone:</strong> {{ $abouts->number_phone }}<br>
+                                <strong>Email:</strong> {{ $abouts->email }}<br>
                             </p>
                             <div class="social-links d-flex mt-3">
                                 <a href="#" class="d-flex align-items-center justify-content-center"><i

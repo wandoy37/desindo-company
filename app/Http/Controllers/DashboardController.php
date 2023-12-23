@@ -38,6 +38,10 @@ class DashboardController extends Controller
                     'content' => 'required',
                     'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                     'youtube' => 'required',
+                    'address' => 'required',
+                    'email' => 'required',
+                    'number_phone' => 'required',
+                    'maps' => 'required',
                 ],
                 [
                     'content.required' => 'Kontent wajib diisi.',
@@ -46,6 +50,34 @@ class DashboardController extends Controller
                     'image.mimes' => 'Foto proyek harus berupa jpeg,png,jpg.',
                     'image.max' => 'Foto proyek Maksimal 2mb',
                     'youtube.required' => 'Link youtube wajib diisi.',
+                    'address.required' => 'Link address wajib diisi.',
+                    'email.required' => 'Link email wajib diisi.',
+                    'number_phone.required' => 'Link number_phone wajib diisi.',
+                    'maps.required' => 'Link maps wajib diisi.',
+                ],
+            );
+        } elseif ($request['logo']) {
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'content' => 'required',
+                    'youtube' => 'required',
+                    'address' => 'required',
+                    'email' => 'required',
+                    'number_phone' => 'required',
+                    'maps' => 'required',
+                    'logo' => 'required|image|mimes:jpeg,png,jpg',
+                ],
+                [
+                    'content.required' => 'Kontent wajib diisi.',
+                    'youtube.required' => 'Link youtube wajib diisi.',
+                    'address.required' => 'Link address wajib diisi.',
+                    'email.required' => 'Link email wajib diisi.',
+                    'number_phone.required' => 'Link number_phone wajib diisi.',
+                    'maps.required' => 'Link maps wajib diisi.',
+                    'logo.required' => 'Logo perusahaan wajib diupload.',
+                    'logo.image' => 'Logo perusahaan berupa gambar.',
+                    'logo.mimes' => 'Logo perusahaan harus berupa jpeg,png,jpg.',
                 ],
             );
         } else {
@@ -54,15 +86,21 @@ class DashboardController extends Controller
                 [
                     'content' => 'required',
                     'youtube' => 'required',
+                    'address' => 'required',
+                    'email' => 'required',
+                    'number_phone' => 'required',
+                    'maps' => 'required',
                 ],
                 [
                     'content.required' => 'Kontent wajib diisi.',
                     'youtube.required' => 'Link youtube wajib diisi.',
+                    'address.required' => 'Link address wajib diisi.',
+                    'email.required' => 'Link email wajib diisi.',
+                    'number_phone.required' => 'Link number_phone wajib diisi.',
+                    'maps.required' => 'Link maps wajib diisi.',
                 ],
             );
         }
-
-
 
         // If validator fails.
         if ($validator->fails()) {
@@ -88,11 +126,31 @@ class DashboardController extends Controller
                     ->save($path . $name);
             }
 
+            if ($request['logo']) {
+                $path = public_path('about/');
+                !is_dir($path) &&
+                    mkdir($path, 0777, true);
+
+                // Process delete old logo
+                $oldLogo = $about->logo;
+                File::delete($path . $oldLogo);
+
+                // Process Uploads
+                $logo = time() . '.' . $request->logo->extension();
+                ResizeImage::make($request->file('logo'))
+                    ->resize(108, 108)
+                    ->save($path . $logo);
+            }
 
             $about->update([
                 'content' => $request->content,
                 'image' => $name ?? $about->image,
                 'youtube' => $request->youtube,
+                'address' => $request->address,
+                'email' => $request->email,
+                'number_phone' => $request->number_phone,
+                'maps' => $request->maps,
+                'logo' => $logo ?? $about->logo,
             ]);
 
             return redirect()->route('dashboard.index')->with('success', 'Informasi Perusahaan berhasil di update.');
