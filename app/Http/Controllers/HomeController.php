@@ -9,6 +9,7 @@ use App\Models\Pengaturan;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -16,18 +17,19 @@ class HomeController extends Controller
     {
         $heros = HeroSection::all();
         $projects = Project::all();
-        $posts = Post::orderBy('id', 'DESC')->get();
+        $posts = Post::orderBy('id', 'DESC')->take(3)->get();
         $services = Layanan::orderBy('id', 'DESC')->get();
         $project_categories = ProjectCategory::all();
         $abouts = About::find(1);
         return view('home.index', compact('heros', 'projects', 'posts', 'services', 'project_categories', 'abouts'));
     }
 
-    public function post()
+    public function post(Request $request)
     {
-        $posts = Post::orderBy('id', 'DESC')->get();
+        $posts = Post::orderBy('id', 'DESC')->paginate(8);
         $services = Layanan::orderBy('id', 'DESC')->get();
         $abouts = About::find(1);
+
         return view('home.post.index', compact('posts', 'services', 'abouts'));
     }
 
@@ -37,7 +39,8 @@ class HomeController extends Controller
         $post = Post::where('slug', $slug)->first();
         $title = $post->title;
         $services = Layanan::orderBy('id', 'DESC')->get();
-        return view('home.post.detail', compact('post', 'title', 'services', 'abouts'));
+        $recent_posts = Post::orderBy('id', 'DESC')->take(3)->get();
+        return view('home.post.detail', compact('post', 'title', 'services', 'abouts', 'recent_posts'));
     }
 
     public function proyek()
